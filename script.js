@@ -2,22 +2,18 @@
 
 document.getElementById('parking-form').addEventListener('submit', function (event) {
     event.preventDefault()
-    var name = document.getElementById('name').value.trim()
-    if(name === ''){
-        showError()
-    }
+   
+    var inputElements = document.getElementsByTagName('input')
+    for (var input of inputElements) {
+        console.log(input)
+        if(input.value.trim() === ('')) {
+            showError(event)  
+          } 
+}
 })
 
-// function showError() {
-//     var errorDiv = document.createElement('div')
-//     errorDiv.classList.add('error-msg')
-//     errorDiv.innerText = 'cannot be blank'
-
-//     var field = document.getElementById('input-field')
-//     errorDiv.classList.add('error-msg')
-//     errorDiv.innerText = 'cannot be blank'
-
-//     var field = document.getElementById('input-field')
-//     field.parentElement.appendChild(errorDiv)
-//     field.classList.add('error')
-// }
+function showError() {
+      
+    var field = document.querySelector('.input-field')
+    field.classList.add('input-invalid')
+}
