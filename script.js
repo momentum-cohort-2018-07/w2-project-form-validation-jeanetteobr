@@ -7,9 +7,10 @@ document.getElementById('parking-form').addEventListener('submit', function () {
 
     for (var el of inputElements){
         if(el.value.trim() === ''){
-            el.parentElement.classList.add('input-invalid')
-        }
-
+            el.parentElement.classList.add('input-invalid') 
+            showErrorMessage(el.parentElement)
+            
+        } 
          else {
             el.parentElement.classList.add('input-valid')
         }
@@ -17,10 +18,15 @@ document.getElementById('parking-form').addEventListener('submit', function () {
 
 })
 
-// function showError() {
-//     var errorDiv = document.createElement('div')
-//     // field.classList.add('error-msg')
+function showErrorMessage(el) {
+    var errorDiv = document.createElement('div')
+    errorDiv.classList.add('error-msg')
+    errorDiv.innerText = 'Cannot be blank'
 
-//     var field = document.getElementById('name-field')
-//     field.classList.add('input-invalid')
+    el.appendChild(errorDiv)
+}
+
+// function clearErrorMessage(el){
+//     var newDiv = document.getElementsByClassName('.error-msg')
+//     el.removeElement(newDiv)
 // }
