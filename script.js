@@ -3,6 +3,8 @@
 document.getElementById('parking-form').addEventListener('submit', function () {
     event.preventDefault()
 
+    clearError()
+
     var inputElements = document.getElementsByTagName('input')
 
     for (var el of inputElements){
@@ -30,3 +32,12 @@ function showErrorMessage(el) {
 //     var newDiv = document.getElementsByClassName('.error-msg')
 //     el.removeElement(newDiv)
 // }
+
+function clearError () {
+    var errorDivs = document.querySelectorAll('.error-msg')
+    for (var errorMsg of errorDivs){
+        errorMsg.remove()
+    }
+
+    }
+  
